@@ -4,7 +4,7 @@ from django.http import HttpResponse            #importing html support
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'hello.html')
 
 def addition(request):
     val1 = int(request.POST['num1'])
