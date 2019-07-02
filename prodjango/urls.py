@@ -18,5 +18,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('fapp.urls')),             #linking fapp file to the project
+    path('', include('travello.urls')),             #linking fapp file to the project
 ]
