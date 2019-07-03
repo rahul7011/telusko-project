@@ -124,3 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'../static')]        #assigning a particular folder for all the front-end stuff
 STATIC_ROOT = os.path.join(BASE_DIR,'assets')           #providing a folder to django where it can assign the above static files according to itself
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')     #folder where all the dynamic images will be saved
+MEDIA_URL = '/media/'
