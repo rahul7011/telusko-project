@@ -3,4 +3,5 @@ from .import views                                #where views is a file
 
 urlpatterns = [
     path('register', views.register, name ='register'),
+    path('login', views.login, name ='login'),
 ]

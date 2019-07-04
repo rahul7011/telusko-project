@@ -3,6 +3,25 @@ from django.contrib.auth.models import User,auth                 #added support 
 from django.contrib import messages
 # Create your views here.
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        check = auth.authenticate(username=username,password=password)
+
+        if check is not None:
+             auth.login(request,check)
+             return redirect('/')
+        else:
+            messages.info(request,'Invalid credentials!')
+            return redirect('login')
+    else:
+        return render(request,'login.html')
+
+
+
+
 def register(request):
 
     if request.method == 'POST':                    #if method is post then answer this
@@ -21,6 +40,6 @@ def register(request):
         else:
             user = User.objects.create_user(first_name=firstname,last_name=lastname,email=email,password=password,username=username)
             user.save();          #above firstname is from main database and after equal is our given name
-        return redirect('/')
+        return redirect('login')
     else:
         return render(request,'register.html')
